@@ -7,8 +7,8 @@ echo = InputDevice(17)
 sleep(2)
 
 def get_pulse_time():
-    trig.on()
-   	sleep(0.00001)
+	trig.on()
+	sleep(0.00001)
 	trig.off()
 
 	while echo.is_active == False:
