@@ -37,10 +37,9 @@ class Radar {
 	}
 
 	addData() {
-		stroke(255, 0, 0);
-		rotate(this.deg);
-		point(this.degs[])
-		rotate(-this.deg);
+		let cosx = Math.cos((this.deg + 10) * Math.PI/180);
+		let siny = Math.sin((this.deg + 10) * Math.PI/180);
+		point(100 * cosx, 100 * siny);
 	}
 }
 
