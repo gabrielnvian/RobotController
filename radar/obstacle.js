@@ -9,11 +9,12 @@ class Obstacle {
 		}
 	}
 
-	check(deg) {
-		return this.deg == deg;
-	}
-
 	show() {
-		point(this.x, this.y)
+		console.log(radar.data)
+		if (this.deg < this.deg + 360) {
+			point(this.x, this.y)
+		} else {
+			radar.data[i]
+		}
 	}
 }
