@@ -7,6 +7,7 @@ function setup() {
 }
 
 function draw() {
+	background(0);
 	radar.show();
 	radar.rotateRadar();
 }
