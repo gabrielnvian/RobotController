@@ -3,7 +3,7 @@ class Obstacle {
 		this.dist = constrain(map(dist, 0, max, 120, width), -width/2/3, width/2)
 		this.x1 = getCoords(angle, this.dist).x
 		this.y1 = getCoords(angle, this.dist).y
-		this.angle = angle + 357
+		this.angle = angle + 360
 
 		//let dist2 = map(this.dist, 0, max, 70, width) + 50
 		//this.x2 = getCoords(angle, dist2).x
@@ -20,7 +20,8 @@ class Obstacle {
 		} else {
 			stroke(89, 206, 74) // green
 		}
-		//line(this.x1, this.y1, this.x2, this.y2)
+		// line(this.x1, this.y1, this.x2, this.y2)
+		// point(252, 58, 239) // DIL
 		point(this.x1, this.y1)
 		pop()
 	}

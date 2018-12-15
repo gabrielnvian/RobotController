@@ -30,7 +30,7 @@ function draw() {
 	ellipse(0, 0, width, height)
 	line(0, 0, getCoords(currentRotation, width/2).x, getCoords(currentRotation, width/2).y)
 
-	//obstacles = getObstacles()
+	getObstacles()
 
 	for (let i = 0; i < obstacles.length; i++) {
 		obstacles[i].draw()
@@ -61,5 +61,8 @@ function transCoords(x, y) {
 }
 
 function getObstacles() {
-	
+	getreq = loadJSON("/get-obstacles")
+	for (let obj in getreq) {
+		obstacles.push(new Obstacle(currentRotation - currentRotation % 360 + getreq[obj].angle, getreq[obj].dist))
+	}
 }
