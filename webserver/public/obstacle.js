@@ -3,7 +3,7 @@ class Obstacle {
 		this.dist = constrain(map(dist, 0, max, 120, width), -width/2/3, width/2)
 		this.x1 = getCoords(angle, this.dist).x
 		this.y1 = getCoords(angle, this.dist).y
-		this.angle = angle + 360
+		this.angle = angle + 360 - 2
 
 		//let dist2 = map(this.dist, 0, max, 70, width) + 50
 		//this.x2 = getCoords(angle, dist2).x

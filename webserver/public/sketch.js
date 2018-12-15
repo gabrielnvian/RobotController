@@ -3,7 +3,7 @@ let obstacles = []
 let max = 1500
 
 function setup() {
-	createCanvas(700, 700)
+	createCanvas(900, 900)
 	angleMode(DEGREES)
 	translate(width/2, height/2)
 	rotate(-90)
@@ -42,7 +42,7 @@ function draw() {
 	currentRotation += 1
 
 	if (mouseIsPressed) {
-		for (let j = 0; j < 1; j++) {
+		for (let j = 0; j < 5; j++) {
 			obstacles.push(new Obstacle(currentRotation, random(-50, width)))
 		}
 	}
