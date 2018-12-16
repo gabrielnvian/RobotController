@@ -32,6 +32,12 @@ function draw() {
 
 	getObstacles()
 
+	if (mouseIsPressed) {
+		for (let j = 0; j < 5; j++) {
+			obstacles.push(new Obstacle(currentRotation, random(-50, width)))
+		}
+	}
+
 	for (let i = 0; i < obstacles.length; i++) {
 		obstacles[i].draw()
 		if (obstacles[i].check(currentRotation)) {
@@ -39,13 +45,7 @@ function draw() {
 		}
 	}
 
-	currentRotation += 1
-
-	if (mouseIsPressed) {
-		for (let j = 0; j < 5; j++) {
-			obstacles.push(new Obstacle(currentRotation, random(-50, width)))
-		}
-	}
+	//currentRotation += 1
 }
 
 function getCoords(deg, dist) {
@@ -61,8 +61,7 @@ function transCoords(x, y) {
 }
 
 function getObstacles() {
-	getreq = loadJSON("/get-obstacles")
-	for (let obj in getreq) {
-		obstacles.push(new Obstacle(currentRotation - currentRotation % 360 + getreq[obj].angle, getreq[obj].dist))
-	}
+	response = loadJSON("/get-obstacles")
+	currentRotation = response[0]
+	obstacles.push(new Obstacle(currentRotation, response[1]))
 }

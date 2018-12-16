@@ -1,6 +1,8 @@
 const express = require("express");
 const server = express();
 
+let rotation
+
 server.get("/", function(req, res) {
 	res.send('<a href="/index.html">index.html</a>');
 })
@@ -15,16 +17,15 @@ server.listen(80);
 console.log("Server listening...");
 
 function sendradar(req, res) {
-	obstacles = [
-		{
-			angle: 40,
-			dist: 100
-		},
-		{
-			angle: 100,
-			dist: 600
-		}
-	]
+	obstacle = 1500
 
-	res.send(obstacles);
+	if (rotation == 100) {
+		obstacle = 100
+	} else if (rotation == 400) {
+		obstacle = 500
+	}
+
+	res.send([rotation, obstacle]);
+
+	rotation += 1
 }
