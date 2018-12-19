@@ -9,6 +9,7 @@
   "author": "Gabriel Vian",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "random": "^2.0.13"
   }
 }

@@ -2,6 +2,7 @@ let currentRotation = 0
 let obstacles = []
 let max = 1500
 
+
 function setup() {
 	createCanvas(900, 900)
 	angleMode(DEGREES)
@@ -32,11 +33,11 @@ function draw() {
 
 	getObstacles()
 
-	if (mouseIsPressed) {
-		for (let j = 0; j < 5; j++) {
-			obstacles.push(new Obstacle(currentRotation, random(-50, width)))
-		}
-	}
+	// if (mouseIsPressed) {
+	// 	for (let j = 0; j < 5; j++) {
+	// 		obstacles.push(new Obstacle(currentRotation, random(-50, width)))
+	// 	}
+	// }
 
 	for (let i = 0; i < obstacles.length; i++) {
 		obstacles[i].draw()
@@ -44,8 +45,6 @@ function draw() {
 			obstacles.splice(i, 1)
 		}
 	}
-
-	//currentRotation += 1
 }
 
 function getCoords(deg, dist) {
@@ -61,7 +60,8 @@ function transCoords(x, y) {
 }
 
 function getObstacles() {
-	response = loadJSON("/get-obstacles")
-	currentRotation = response[0]
-	obstacles.push(new Obstacle(currentRotation, response[1]))
+	loadJSON("/get-obstacles", function(response) {
+		currentRotation = response.rot
+		obstacles.push(new Obstacle(currentRotation, response.dist))
+	})
 }
