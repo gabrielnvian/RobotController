@@ -4,7 +4,7 @@ let max = 1500
 
 
 function setup() {
-	createCanvas(900, 900)
+	createCanvas(windowHeight, windowHeight)
 	angleMode(DEGREES)
 	translate(width/2, height/2)
 	rotate(-90)
