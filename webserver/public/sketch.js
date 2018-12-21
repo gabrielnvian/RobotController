@@ -4,7 +4,7 @@ let max = 1500
 
 
 function setup() {
-	createCanvas(900, 900)
+	createCanvas(windowHeight, windowHeight)
 	angleMode(DEGREES)
 	translate(width/2, height/2)
 	rotate(-90)
@@ -17,7 +17,7 @@ function draw() {
 
 	translate(width/2, height/2)
 	rotate(-90)
-	
+
 	noFill()
 	stroke(255)
 	strokeWeight(10)
@@ -26,18 +26,14 @@ function draw() {
 	strokeWeight(0.3)
 	ellipse(0, 0, width/3, height/3)
 	ellipse(0, 0, width/3*2, height/3*2)
-	
-	strokeWeight(2)
-	ellipse(0, 0, width, height)
-	line(0, 0, getCoords(currentRotation, width/2).x, getCoords(currentRotation, width/2).y)
 
 	getObstacles()
 
-	// if (mouseIsPressed) {
-	// 	for (let j = 0; j < 5; j++) {
-	// 		obstacles.push(new Obstacle(currentRotation, random(-50, width)))
-	// 	}
-	// }
+	if (mouseIsPressed) {
+		for (let j = 0; j < 5; j++) {
+			obstacles.push(new Obstacle(currentRotation, random(-50, width)))
+		}
+	}
 
 	for (let i = 0; i < obstacles.length; i++) {
 		obstacles[i].draw()
@@ -45,6 +41,10 @@ function draw() {
 			obstacles.splice(i, 1)
 		}
 	}
+
+	strokeWeight(2)
+	ellipse(0, 0, width, height)
+	line(0, 0, getCoords(currentRotation, width/2).x, getCoords(currentRotation, width/2).y)
 }
 
 function getCoords(deg, dist) {
